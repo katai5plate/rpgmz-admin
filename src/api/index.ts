@@ -4,7 +4,7 @@ import { API_URL } from "../router";
 
 const API = "http://localhost:3000";
 
-export const getGameList = async () =>
+export const getGameNames = async () =>
   (await axios.get<ApiGamesRes>(`${API}${API_URL.GET$GAME_NAMES()}`)).data;
 
 export const getGameMeta = async (game: string) =>

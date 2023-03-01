@@ -6,7 +6,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { type ApiGamesRes } from "~/src/server";
-import { getGameList } from "../api";
+import { getGameNames } from "../api";
 
 const theme = createTheme({ palette: { mode: "dark" } });
 
@@ -15,7 +15,7 @@ export default () => {
 
   const [response, setResponse] = React.useState<ApiGamesRes>();
   React.useEffect(() => {
-    getGameList()
+    getGameNames()
       .then((res) => {
         setResponse(res);
       })
