@@ -23,7 +23,7 @@ const handler = <R = ApiResultRes>(res: Response, process: () => R) => {
   }
 };
 
-app.get(API_URL.GET_PING(), (_, res) => {
+app.get(API_URL.GET$PING(), (_, res) => {
   handler(res, () => ({ result: true }));
 });
 

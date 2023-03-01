@@ -1,7 +1,7 @@
 export type RouteParams = "game";
 
 export const API_URL = {
-  GET_PING: () => "/",
+  GET$PING: () => "/",
   GET$GAME_NAMES: () => "/games",
   GET$GAME_META: (game = ":game") => `/games/${game}`,
 };
