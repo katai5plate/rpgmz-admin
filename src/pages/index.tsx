@@ -5,29 +5,29 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
-import { type ApiGamesPayload } from "~/server";
+import { type ApiGamesRes } from "~/src/server";
 import { getGameList } from "../api";
 
 const theme = createTheme({ palette: { mode: "dark" } });
 
 export default () => {
-  const [games, setGames] = React.useState<ApiGamesPayload["games"]>([]);
   const navi = useNavigate();
 
+  const [response, setResponse] = React.useState<ApiGamesRes>();
   React.useEffect(() => {
     getGameList()
       .then((res) => {
-        setGames(res.games);
+        setResponse(res);
       })
       .catch(() => {});
-  }, [games]);
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box>
-          {games.map((game, index) => (
+          {response?.games.map((game, index) => (
             <Box key={index} sx={{ mt: 1 }}>
               <Button
                 fullWidth
