@@ -1,6 +1,6 @@
 import React from "react";
 import { type ApiGamesGameRes } from "~/src/server";
-import { getGameOverview } from "../api";
+import { getGameMeta } from "../api";
 import { useRouteParams } from "../hooks/route";
 import { getLinks } from "../router";
 import Standard from "../templates/Standard";
@@ -11,7 +11,7 @@ export default () => {
   const [response, setResponse] = React.useState<ApiGamesGameRes>();
   React.useEffect(() => {
     game &&
-      getGameOverview(game)
+      getGameMeta(game)
         .then((res) => {
           setResponse(res);
         })

@@ -7,7 +7,7 @@ const API = "http://localhost:3000";
 export const getGameList = async () =>
   (await axios.get<ApiGamesRes>(`${API}${API_URL.GET$GAME_NAMES()}`)).data;
 
-export const getGameOverview = async (game: string) =>
+export const getGameMeta = async (game: string) =>
   (await axios.get<ApiGamesGameRes>(`${API}${API_URL.GET$GAME_META(game)}`))
     .data;
 
